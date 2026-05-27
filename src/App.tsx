@@ -1,12 +1,14 @@
 import { Flex } from "@chakra-ui/react";
 import { HeroSection } from "./components/sections/hero";
-import { SmoothScroll } from "./components/SmoothScroll";
+import DatasetSection from "./components/sections/dataset";
+import Scroll from "./components/scroll";
 
 function App() {
   return (
-    <Flex direction="column" userSelect="none" h='1000dvh'>
-      <SmoothScroll />
+    <Flex direction="column" userSelect="none">
+      <Scroll />
       <HeroSection />
+      <DatasetSection />
     </Flex>
   );
 }

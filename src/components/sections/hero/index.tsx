@@ -7,7 +7,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { HeroScene } from "../../three/HeroScene";
+import { HeroScene } from "./three/HeroScene";
 
 export function HeroSection() {
   return (
@@ -18,7 +18,6 @@ export function HeroSection() {
       px="12"
       gap={{ base: "0", lg: "8" }}
       position="relative"
-      overflow="hidden"
     >
       <VStack
         h={{ base: "100dvh", lg: "100%" }}
@@ -52,7 +51,7 @@ export function HeroSection() {
           Uma análise do <Span color="primary">aumento no preço</Span> das
           memorias RAM entre 2025 e 2026
         </Text>
-        <Separator borderColor='primary' w='50%' borderWidth='1px' />
+        <Separator borderColor="primary" w="50%" borderWidth="1px" />
       </VStack>
 
       <Flex
@@ -74,7 +73,7 @@ export function HeroSection() {
           h="100%"
           opacity={0.5}
           bgImage={`
-            url('/images/particles/particles1.png')
+            url('/images/particles/1.png')
           `}
           bgBlendMode="multiply"
           bgSize="contain"
