@@ -1,27 +1,27 @@
-import {
-  createSystem,
-  defaultConfig,
-  defineConfig,
-} from '@chakra-ui/react'
+import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
 const config = defineConfig({
   theme: {
     tokens: {
       colors: {
         bg: {
-          value: '#010102',
+          value: "#010102",
         },
 
         primary: {
-          value: '#0FA135',
+          value: "#0FA135",
+        },
+
+        "primary.light": {
+          value: "#34D170",
         },
 
         destructive: {
-          value: '#E82C34',
+          value: "#E82C34",
         },
 
         white: {
-          value: '#FFFFFF',
+          value: "#FFFFFF",
         },
       },
 
@@ -39,11 +39,11 @@ const config = defineConfig({
     semanticTokens: {
       colors: {
         background: {
-          value: '{colors.bg}',
+          value: "{colors.bg}",
         },
 
         text: {
-          value: '{colors.white}',
+          value: "{colors.white}",
         },
       },
     },
@@ -51,20 +51,20 @@ const config = defineConfig({
 
   globalCss: {
     html: {
-      scrollBehavior: 'smooth',
+      scrollBehavior: "smooth",
     },
 
     body: {
-      bg: '#010102',
-      color: 'white',
-      overflowX: 'hidden',
+      bg: "#010102",
+      color: "white",
+      overflowX: "hidden",
     },
 
-    '#root': {
-      bg: '#010102',
-      minHeight: '100vh',
+    "#root": {
+      bg: "#010102",
+      minHeight: "100vh",
     },
   },
-})
+});
 
-export const system = createSystem(defaultConfig, config)
+export const system = createSystem(defaultConfig, config);
