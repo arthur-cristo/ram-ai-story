@@ -18,9 +18,10 @@ export function ScrollProgress() {
       top="0"
       right="0"
       h="100dvh"
-      w="4px"
+      w="8px"
       bg="whiteAlpha.100"
       zIndex={9999}
+      mr='16px'
     >
       <MotionBox
         style={{
@@ -30,6 +31,7 @@ export function ScrollProgress() {
         w="100%"
         h="100%"
         bg="primary"
+        opacity={0.6}
       />
     </Box>
   );

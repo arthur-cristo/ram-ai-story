@@ -5,7 +5,7 @@ import Scroll from "./components/scroll";
 
 function App() {
   return (
-    <Flex direction="column" userSelect="none">
+    <Flex direction="column" userSelect="none" gap="16">
       <Scroll />
       <HeroSection />
       <DatasetSection />

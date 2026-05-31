@@ -6,16 +6,16 @@ const MotionBox = motion.create(Box);
 
 const stats = [
   {
-    value: "180",
-    label: "DIAS MONITORADOS",
+    value: "39",
+    label: "MODELOS MONITORADOS",
   },
   {
-    value: "38",
-    label: "MODELOS DDR4",
+    value: "3",
+    label: "DATASETS",
   },
   {
-    value: "19",
-    label: "MODELOS DDR5",
+    value: "BR + US",
+    label: "COMPARAÇÃO DE MERCADOS",
   },
   {
     value: "6",
@@ -25,12 +25,7 @@ const stats = [
 
 const DatasetSection = () => {
   return (
-    <Flex
-      h="100dvh"
-      position="relative"
-      align="center"
-      justify="center"
-    >
+    <Flex h="100dvh" position="relative" align="center" justify="center">
       <VStack
         zIndex={1}
         align="center"
@@ -61,17 +56,20 @@ const DatasetSection = () => {
               fontWeight="bold"
               letterSpacing="-0.06em"
               lineHeight="1"
+              pr="0.06em" // 1. Compensa o corte do 8
+              ml="-0.04em" // 2. Puxa o 1 para a esquerda
             >
-              7.278
+              10.388
             </Heading>
 
             <Text
-              fontSize={{ base: "lg", lg: "xl" }}
+              mt="-10"
+              fontSize={{ base: "lg", lg: "2rem" }}
               fontWeight="600"
               color="primary"
               letterSpacing="0.12em"
             >
-              REGISTROS COLETADOS
+              PREÇOS COLETADOS
             </Text>
           </VStack>
         </MotionBox>
@@ -93,6 +91,8 @@ const DatasetSection = () => {
                   opacity={0.7}
                   fontSize={{ base: "xs", lg: "sm" }}
                   letterSpacing="0.08em"
+                  w="150px"
+                  textAlign="center"
                 >
                   {item.label}
                 </Text>
