@@ -56,8 +56,8 @@ const DatasetSection = () => {
               fontWeight="bold"
               letterSpacing="-0.06em"
               lineHeight="1"
-              pr="0.06em" // 1. Compensa o corte do 8
-              ml="-0.04em" // 2. Puxa o 1 para a esquerda
+              pr="0.06em"
+              ml="-0.04em"
             >
               10.388
             </Heading>
@@ -66,7 +66,7 @@ const DatasetSection = () => {
               mt="-10"
               fontSize={{ base: "lg", lg: "2rem" }}
               fontWeight="600"
-              color="primary"
+              color="primary.light"
               letterSpacing="0.12em"
             >
               PREÇOS COLETADOS

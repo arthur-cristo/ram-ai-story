@@ -35,7 +35,7 @@ export function HeroSection() {
           fontWeight="900"
           letterSpacing="-0.04em"
         >
-          A Crise de <Span color="primary">RAM</Span>
+          A Crise de <Span color="primary.light">RAM</Span>
           <br />
           na Era da IA
         </Heading>
@@ -48,10 +48,10 @@ export function HeroSection() {
           fontWeight="400"
           letterSpacing="-0.01em"
         >
-          Uma análise do <Span color="primary">aumento no preço</Span> das
+          Uma análise do <Span color="primary.light">aumento no preço</Span> das
           memorias RAM entre 2025 e 2026
         </Text>
-        <Separator borderColor="primary" w="50%" borderWidth="1px" />
+        <Separator borderColor="primary.light" w="50%" borderWidth="1px" />
       </VStack>
 
       <Flex
