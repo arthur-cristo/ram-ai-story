@@ -12,22 +12,20 @@ import CustomHover from "./CustomHover";
 import ReferenceLines from "./ReferenceLines";
 import { useMemo } from "react";
 import { useRamHistory } from "@/hooks/useRamHistory";
-import { useInView } from "framer-motion";
-import GrowthIndicator from "./GrowthIndicator";
 import { Box } from "@chakra-ui/react";
+import GrowthIndicatorDesktop from "./GrowthIndicatorDesktop";
 
 type Props = {
-  chartRef: React.RefObject<HTMLDivElement | null>;
+  isInView: boolean;
 };
 
-const Graph = ({ chartRef }: Props) => {
-  const isInView = useInView(chartRef, { once: true, amount: 0.5 });
+const Graph = ({ isInView }: Props) => {
   const useRamHistoryData = useRamHistory();
   const data = useMemo(() => {
     return isInView ? useRamHistoryData.data : useRamHistoryData.emptyData;
   }, [isInView, useRamHistoryData.data]);
   return (
-    <Box position="relative" w="100%" h="80%">
+    <Box position="relative" w="100%" h={{ base: "100%", lg: "80%" }} zIndex={2}>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 20, right: 30, left: 10 }}>
           <CartesianGrid
@@ -95,7 +93,7 @@ const Graph = ({ chartRef }: Props) => {
           />
         </AreaChart>
       </ResponsiveContainer>
-      <GrowthIndicator isInView={isInView} />
+      <GrowthIndicatorDesktop isInView={isInView} />
     </Box>
   );
 };

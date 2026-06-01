@@ -1,27 +1,9 @@
+import { DATASET_STATS } from "@/constants";
 import { Box, Flex, Heading, HStack, Text, VStack } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
 
 const MotionBox = motion.create(Box);
-
-const stats = [
-  {
-    value: "39",
-    label: "MODELOS MONITORADOS",
-  },
-  {
-    value: "3",
-    label: "DATASETS",
-  },
-  {
-    value: "BR + US",
-    label: "COMPARAÇÃO DE MERCADOS",
-  },
-  {
-    value: "6",
-    label: "FONTES DE DADOS",
-  },
-];
 
 const DatasetSection = () => {
   return (
@@ -63,7 +45,7 @@ const DatasetSection = () => {
             </Heading>
 
             <Text
-              mt="-10"
+              mt={{ base: "0", lg: "-10" }}
               fontSize={{ base: "lg", lg: "2rem" }}
               fontWeight="600"
               color="primary.light"
@@ -80,7 +62,7 @@ const DatasetSection = () => {
           gap={{ base: "4", lg: "10" }}
           px={{ base: "4", lg: "16" }}
         >
-          {stats.map((item, index) => (
+          {DATASET_STATS.map((item, index) => (
             <HStack key={item.label} gap={{ base: "4", lg: "10" }}>
               <VStack gap="1">
                 <Heading fontSize={{ base: "2xl", lg: "4xl" }} lineHeight="1">
@@ -98,7 +80,7 @@ const DatasetSection = () => {
                 </Text>
               </VStack>
 
-              {index !== stats.length - 1 && (
+              {index !== DATASET_STATS.length - 1 && (
                 <Box
                   h={{ base: "40px", lg: "60px" }}
                   w="1px"

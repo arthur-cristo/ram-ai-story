@@ -4,16 +4,16 @@ type Props = {
   isInView: boolean;
 };
 
-const GrowthIndicator = ({ isInView }: Props) => {
+const GrowthIndicatorDesktop = ({ isInView }: Props) => {
   return (
     <>
       {isInView && (
         <Box
+          display={{ base: "none", lg: "flex" }}
           position="absolute"
           bottom="10%"
           right="5%"
           borderRadius="lg"
-          display="flex"
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
@@ -31,7 +31,7 @@ const GrowthIndicator = ({ isInView }: Props) => {
         >
           <Text
             color="primary.light"
-            fontSize="5xl"
+            fontSize={{ base: "lg", lg: "5xl" }}
             fontWeight="900"
             lineHeight="1"
             letterSpacing="-0.04em"
@@ -39,10 +39,10 @@ const GrowthIndicator = ({ isInView }: Props) => {
             +114%
           </Text>
           <Text
-            color="primary.light"
             fontWeight="bold"
             textAlign="center"
             letterSpacing="0.05em"
+            fontSize={{ base: "sm", lg: "md" }}
             mt="2"
           >
             DE AUMENTO
@@ -62,4 +62,4 @@ const GrowthIndicator = ({ isInView }: Props) => {
   );
 };
 
-export default GrowthIndicator;
+export default GrowthIndicatorDesktop;

@@ -29,7 +29,6 @@ function Scene() {
 
   return (
     <>
-
       <ambientLight intensity={1.5} />
 
       <directionalLight

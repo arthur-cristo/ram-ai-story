@@ -5,6 +5,7 @@ import toBrl from "@/utils/toBrl";
 
 const CustomHover = () => (
   <Tooltip
+    wrapperStyle={{ zIndex: 9999, pointerEvents: "none" }}
     cursor={{
       stroke: "#34D170",
       opacity: 0.4,
@@ -31,6 +32,7 @@ const CustomHover = () => (
             0 0 12px rgba(15,161,53,.12),
             inset 0 0 12px rgba(15,161,53,.12)
           "
+          zIndex={999}
         >
           <Text
             fontSize="xs"
@@ -52,10 +54,10 @@ const CustomHover = () => (
 
           {event && (
             <Box
-              pt="3"
+              pt={{ base: "1", lg: "3" }}
               borderTop="1px solid"
               borderColor="whiteAlpha.200"
-              w="25rem"
+              w={{ base: "50dvw", lg: "25rem" }}
             >
               <Text
                 color="primary.light"
@@ -72,7 +74,7 @@ const CustomHover = () => (
                   key={index}
                   mt="1"
                   color="whiteAlpha.800"
-                  fontSize="xs"
+                  fontSize={{ base: "2xs", lg: "xs" }}
                   lineHeight="1.5"
                   textAlign="justify"
                 >

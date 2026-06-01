@@ -6,7 +6,7 @@ import { MemoryPriceChart } from "./components/sections/memoryPriceChart";
 
 function App() {
   return (
-    <Flex direction="column" userSelect="none" gap="16">
+    <Flex direction="column" userSelect="none" gap="16" overflow="hidden">
       <Scroll />
       <HeroSection />
       <DatasetSection />
