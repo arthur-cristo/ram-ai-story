@@ -14,6 +14,7 @@ import { useMemo } from "react";
 import { useRamHistory } from "@/hooks/useRamHistory";
 import { Box } from "@chakra-ui/react";
 import GrowthIndicatorDesktop from "./GrowthIndicatorDesktop";
+import { isMobile } from "react-device-detect";
 
 type Props = {
   isInView: boolean;
@@ -25,7 +26,12 @@ const Graph = ({ isInView }: Props) => {
     return isInView ? useRamHistoryData.data : useRamHistoryData.emptyData;
   }, [isInView, useRamHistoryData.data]);
   return (
-    <Box position="relative" w="100%" h={{ base: "100%", lg: "80%" }} zIndex={2}>
+    <Box
+      position="relative"
+      w="100%"
+      h={{ base: "100%", lg: "80%" }}
+      zIndex={2}
+    >
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 20, right: 30, left: 10 }}>
           <CartesianGrid
@@ -45,7 +51,7 @@ const Graph = ({ isInView }: Props) => {
               const year = String(current.getFullYear()).slice(-2);
 
               if (index === 0) {
-                return `${MONTHS[month]}/${year}`;
+                return isMobile ? "" : `${MONTHS[month]}/${year}`;
               }
 
               const previous = new Date(data[index - 1].date);
