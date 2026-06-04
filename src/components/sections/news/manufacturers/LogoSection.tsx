@@ -28,10 +28,10 @@ const LogoSection = ({
       justify="center"
       alignItems="center"
       gap={{ base: 12, lg: 20 }}
+      zIndex={1}
     >
       {MANUFAFACTURERS_LOGOS.map((logo) => {
         const isMicron = logo.alt.toLowerCase().includes("micron");
-
         const micronProgress = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
         const y = isMicron
@@ -41,6 +41,21 @@ const LogoSection = ({
             )
           : baseFloat;
 
+        const getMicronColor = (p: number, originalColor: string) => {
+          if (!isMicron) return originalColor;
+
+          const [r, g, b] = originalColor.split(",").map(Number);
+          const targetR = 128,
+            targetG = 128,
+            targetB = 128;
+
+          const currentR = Math.round(r + (targetR - r) * p);
+          const currentG = Math.round(g + (targetG - g) * p);
+          const currentB = Math.round(b + (targetB - b) * p);
+
+          return `${currentR}, ${currentG}, ${currentB}`;
+        };
+
         const filter = useTransform(micronProgress, (p) => {
           if (!isMicron) {
             return `
@@ -49,18 +64,23 @@ const LogoSection = ({
               drop-shadow(0 0 40px rgba(${logo.color},${logo.shadowIntensity?.[2] ?? 0.4}))
             `;
           }
+
           const alpha = 1 - p;
+          const currentColor = getMicronColor(p, logo.color);
+
           return `
             brightness(${alpha + 0.3})
-            drop-shadow(0 0 8px rgba(${logo.color},${(logo.shadowIntensity?.[0] ?? 0.8) * alpha}))
-            drop-shadow(0 0 20px rgba(${logo.color},${(logo.shadowIntensity?.[1] ?? 0.6) * alpha}))
-            drop-shadow(0 0 40px rgba(${logo.color},${(logo.shadowIntensity?.[2] ?? 0.4) * alpha}))
+            drop-shadow(0 0 8px rgba(${currentColor},${(logo.shadowIntensity?.[0] ?? 0.8) * alpha}))
+            drop-shadow(0 0 20px rgba(${currentColor},${(logo.shadowIntensity?.[1] ?? 0.6) * alpha}))
+            drop-shadow(0 0 40px rgba(${currentColor},${(logo.shadowIntensity?.[2] ?? 0.4) * alpha}))
           `;
         });
 
         const separatorBg = useTransform(micronProgress, (p) => {
-          const color = isMicron && p > 0.1 ? "128, 128, 128" : logo.color;
-          return `linear-gradient(90deg, rgba(${color},0) 0%, rgba(${color},1) 50%, rgba(${color},0) 100%)`;
+          const currentColor = getMicronColor(p, logo.color);
+          const opacity = isMicron ? Math.max(0, 1 - p) : 1;
+
+          return `linear-gradient(90deg, rgba(${currentColor},0) 0%, rgba(${currentColor},${opacity}) 50%, rgba(${currentColor},0) 100%)`;
         });
 
         return (
