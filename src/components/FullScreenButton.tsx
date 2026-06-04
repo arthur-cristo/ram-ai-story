@@ -11,6 +11,14 @@ type FullscreenElement = HTMLElement & {
   webkitRequestFullscreen?: () => Promise<void>
 }
 
+type ScreenOrientationWithLock = ScreenOrientation & {
+  lock?: (orientation: OrientationLockType) => Promise<void>;
+};
+
+type ScreenWithOrientation = Screen & {
+  orientation?: ScreenOrientationWithLock;
+};
+
 const FullscreenToggleButton = () => {
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false)
 
@@ -35,38 +43,48 @@ const FullscreenToggleButton = () => {
   }, [])
 
   const toggleFullscreen = async (): Promise<void> => {
-    const fullscreenDocument: FullscreenDocument = document as FullscreenDocument
-    const fullscreenElement: Element | null =
-      document.fullscreenElement || fullscreenDocument.webkitFullscreenElement || null
-
+    const fullscreenDocument: FullscreenDocument = document as FullscreenDocument;
+    const fullscreenElement =
+      document.fullscreenElement ||
+      fullscreenDocument.webkitFullscreenElement ||
+      null;
+  
     try {
       if (fullscreenElement) {
         if (document.exitFullscreen) {
-          await document.exitFullscreen()
-          return
+          await document.exitFullscreen();
+        } else if (fullscreenDocument.webkitExitFullscreen) {
+          await fullscreenDocument.webkitExitFullscreen();
         }
-
-        if (fullscreenDocument.webkitExitFullscreen) {
-          await fullscreenDocument.webkitExitFullscreen()
-        }
-
-        return
+  
+        return;
       }
-
-      const target: FullscreenElement = document.documentElement as FullscreenElement
-
+  
+      const target = document.documentElement as FullscreenElement;
+  
       if (target.requestFullscreen) {
-        await target.requestFullscreen()
-        return
+        await target.requestFullscreen();
+      } else if (target.webkitRequestFullscreen) {
+        await target.webkitRequestFullscreen();
       }
-
-      if (target.webkitRequestFullscreen) {
-        await target.webkitRequestFullscreen()
+  
+      // Mobile: tenta travar em landscape
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        try {
+          const screenWithOrientation =
+            screen as ScreenWithOrientation;
+  
+          await screenWithOrientation.orientation?.lock?.(
+            "landscape"
+          );
+        } catch (err) {
+          console.warn("Orientation lock não suportado", err);
+        }
       }
-    } catch (error: unknown) {
-      console.error('Não foi possível alternar tela cheia:', error)
+    } catch (error) {
+      console.error("Não foi possível alternar tela cheia:", error);
     }
-  }
+  };
 
   return (
     <IconButton
