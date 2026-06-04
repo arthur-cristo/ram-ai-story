@@ -1,3 +1,5 @@
+import type { ManufacturersLogos } from "@/types/constants";
+
 export const MONTHS = [
   "JAN",
   "FEV",
@@ -62,3 +64,18 @@ export const DATASET_STATS = [
     label: "FONTES DE DADOS",
   },
 ];
+
+  export const MANUFAFACTURERS_LOGOS: ManufacturersLogos[] = [
+    {
+      src: "/images/logos/samsung.png",
+      alt: "samsung",
+      color: "0,162,255",
+    },
+    {
+      src: "/images/logos/sk_hynix.png",
+      alt: "sk-hynix",
+      color: "255,162,0",
+      shadowIntensity: [0.4, 0.3, 0.2],
+    },
+    { src: "/images/logos/micron.png", alt: "micron", color: "162,0,255" },
+  ];
