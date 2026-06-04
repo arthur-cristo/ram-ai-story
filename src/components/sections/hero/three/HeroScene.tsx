@@ -1,13 +1,13 @@
-import { Canvas } from "@react-three/fiber";
-import { useRef } from "react";
+import { Canvas } from '@react-three/fiber'
+import { useRef } from 'react'
 
-import * as THREE from "three";
+import * as THREE from 'three'
 
-import { isMobile } from "react-device-detect";
+import { isMobile } from 'react-device-detect'
 
-import { RamModel } from "./RamModel";
+import { RamModel } from './RamModel'
 
-const DEVICE = isMobile ? "mobile" : "desktop";
+const DEVICE = isMobile ? 'mobile' : 'desktop'
 
 function Scene() {
   const MODEL_CONFIG = {
@@ -22,10 +22,10 @@ function Scene() {
       rotation: [0, 0, 0],
       scale: 0.009,
     },
-  } as const;
-  const modelRef = useRef<THREE.Group>(null);
+  } as const
+  const modelRef = useRef<THREE.Group>(null)
 
-  const model = MODEL_CONFIG[DEVICE];
+  const model = MODEL_CONFIG[DEVICE]
 
   return (
     <>
@@ -53,7 +53,7 @@ function Scene() {
         />
       </group>
     </>
-  );
+  )
 }
 
 export function HeroScene() {
@@ -69,12 +69,12 @@ export function HeroScene() {
       rotation: [-1.16, -0.1, -0.1],
       fov: 45,
     },
-  } as const;
-  const camera = CAMERA_CONFIG[DEVICE];
+  } as const
+  const camera = CAMERA_CONFIG[DEVICE]
 
   return (
     <Canvas camera={camera}>
       <Scene />
     </Canvas>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-import { SmoothScroll } from "./SmoothScroll";
-import { ScrollProgress } from "./ScrollProgress";
+import { SmoothScroll } from './SmoothScroll'
+import { ScrollProgress } from './ScrollProgress'
 
 const Scroll = () => (
   <>
     <SmoothScroll />
     <ScrollProgress />
   </>
-);
+)
 
-export default Scroll;
+export default Scroll

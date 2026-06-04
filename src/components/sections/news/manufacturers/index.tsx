@@ -1,42 +1,16 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  HStack,
-  Image,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import { useRef } from "react";
-import LogoSection from "./LogoSection";
+import { Box, Flex, Heading, HStack, Image, Text, VStack } from '@chakra-ui/react'
+import { useRef } from 'react'
+import LogoSection from './LogoSection'
 
 const Manufacturers = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
 
   return (
-    <Flex
-      ref={containerRef}
-      h="100dvh"
-      w="100%"
-      flexDir="column"
-      position="relative"
-    >
-      <HStack
-        h="fit-content"
-        w="100%"
-        justify="space-between"
-        pr="12"
-        zIndex={1}
-      >
-        <VStack
-          gap="0"
-          justifyContent="start"
-          alignItems="start"
-          h="fit-content"
-          p="8"
-        >
+    <Flex ref={containerRef} h="100dvh" w="100%" flexDir="column" position="relative">
+      <HStack h="fit-content" w="100%" justify="space-between" pr="12" zIndex={1}>
+        <VStack gap="0" justifyContent="start" alignItems="start" h="fit-content" p="8">
           <Heading
-            fontSize={{ base: "7rem", lg: "15rem" }}
+            fontSize={{ base: '7rem', lg: '15rem' }}
             fontWeight={900}
             color="primary.light"
             letterSpacing="-0.06em"
@@ -47,9 +21,9 @@ const Manufacturers = () => {
             73%
           </Heading>
           <Text
-            fontSize={{ base: "md", lg: "2rem" }}
+            fontSize={{ base: 'md', lg: '2rem' }}
             fontWeight="600"
-            mt={{ base: "0", lg: "-4" }}
+            mt={{ base: '0', lg: '-4' }}
             lineHeight="1"
           >
             DA PRODUÇÃO MUNDIAL
@@ -59,15 +33,14 @@ const Manufacturers = () => {
         </VStack>
         <VStack w="250px" textAlign="right" align="end">
           <Text
-            fontSize={{ base: "md", lg: "xl" }}
+            fontSize={{ base: 'md', lg: 'xl' }}
             fontWeight="600"
-            mt={{ base: "0", lg: "-4" }}
+            mt={{ base: '0', lg: '-4' }}
             lineHeight="1.5"
           >
-            Uma "escassez significativa" em produtos de memória deverá persistir
-            pelo menos até 2027
+            Uma "escassez significativa" em produtos de memória deverá persistir pelo menos até 2027
           </Text>
-          <Text color="whiteAlpha.700" fontSize={{ base: "sm", lg: "lg" }}>
+          <Text color="whiteAlpha.700" fontSize={{ base: 'sm', lg: 'lg' }}>
             - Kim Jaejune
             <br />
             Chefe da Divisão de Memória
@@ -75,17 +48,11 @@ const Manufacturers = () => {
         </VStack>
       </HStack>
       <LogoSection containerRef={containerRef} />
-      <Box
-        position="absolute"
-        bottom="0"
-        right="0"
-        overflow="hidden"
-        opacity={0.3}
-      >
+      <Box position="absolute" bottom="0" right="0" overflow="hidden" opacity={0.3}>
         <Image src="/images/particles/3.png" />
       </Box>
     </Flex>
-  );
-};
+  )
+}
 
-export default Manufacturers;
+export default Manufacturers

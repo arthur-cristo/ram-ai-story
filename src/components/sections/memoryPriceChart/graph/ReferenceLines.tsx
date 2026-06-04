@@ -1,5 +1,5 @@
-import { ReferenceLine } from "recharts";
-import { EVENTS } from "@/constants";
+import { ReferenceLine } from 'recharts'
+import { EVENTS } from '@/constants'
 
 const ReferenceLines = () => (
   <>
@@ -7,6 +7,6 @@ const ReferenceLines = () => (
       <ReferenceLine key={date} x={date} stroke="#34D170" />
     ))}
   </>
-);
+)
 
-export default ReferenceLines;
+export default ReferenceLines

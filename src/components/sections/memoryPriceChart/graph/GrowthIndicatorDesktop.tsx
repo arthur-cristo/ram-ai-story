@@ -1,15 +1,15 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text } from '@chakra-ui/react'
 
 type Props = {
-  isInView: boolean;
-};
+  isInView: boolean
+}
 
 const GrowthIndicatorDesktop = ({ isInView }: Props) => {
   return (
     <>
       {isInView && (
         <Box
-          display={{ base: "none", lg: "flex" }}
+          display={{ base: 'none', lg: 'flex' }}
           position="absolute"
           bottom="10%"
           right="5%"
@@ -31,7 +31,7 @@ const GrowthIndicatorDesktop = ({ isInView }: Props) => {
         >
           <Text
             color="primary.light"
-            fontSize={{ base: "lg", lg: "5xl" }}
+            fontSize={{ base: 'lg', lg: '5xl' }}
             fontWeight="900"
             lineHeight="1"
             letterSpacing="-0.04em"
@@ -42,7 +42,7 @@ const GrowthIndicatorDesktop = ({ isInView }: Props) => {
             fontWeight="bold"
             textAlign="center"
             letterSpacing="0.05em"
-            fontSize={{ base: "sm", lg: "md" }}
+            fontSize={{ base: 'sm', lg: 'md' }}
             mt="2"
           >
             DE AUMENTO
@@ -59,7 +59,7 @@ const GrowthIndicatorDesktop = ({ isInView }: Props) => {
       }
     `}</style>
     </>
-  );
-};
+  )
+}
 
-export default GrowthIndicatorDesktop;
+export default GrowthIndicatorDesktop

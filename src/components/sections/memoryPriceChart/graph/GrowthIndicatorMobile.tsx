@@ -1,15 +1,15 @@
-import { Heading, Text, VStack } from "@chakra-ui/react";
+import { Heading, Text, VStack } from '@chakra-ui/react'
 
 type Props = {
-  isInView: boolean;
-};
+  isInView: boolean
+}
 
 const GrowthIndicatorMobile = ({ isInView }: Props) => {
   return (
     <>
       {isInView && (
         <VStack
-          display={{ base: "flex", lg: "none" }}
+          display={{ base: 'flex', lg: 'none' }}
           align="end"
           gap={0}
           w="100%"
@@ -29,7 +29,7 @@ const GrowthIndicatorMobile = ({ isInView }: Props) => {
       }
     `}</style>
     </>
-  );
-};
+  )
+}
 
-export default GrowthIndicatorMobile;
+export default GrowthIndicatorMobile

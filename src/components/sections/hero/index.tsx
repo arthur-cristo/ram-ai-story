@@ -1,26 +1,18 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Separator,
-  Span,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import { HeroScene } from "./three/HeroScene";
+import { Box, Flex, Heading, Separator, Span, Text, VStack } from '@chakra-ui/react'
+import { HeroScene } from './three/HeroScene'
 
 export function HeroSection() {
   return (
     <Flex
-      h={{ base: "150dvh", lg: "100dvh" }}
-      flexDirection={{ base: "column", lg: "row" }}
+      h={{ base: '150dvh', lg: '100dvh' }}
+      flexDirection={{ base: 'column', lg: 'row' }}
       alignItems="center"
       px="12"
-      gap={{ base: "0", lg: "8" }}
+      gap={{ base: '0', lg: '8' }}
       position="relative"
     >
       <VStack
-        h={{ base: "100dvh", lg: "100%" }}
+        h={{ base: '100dvh', lg: '100%' }}
         align="stretch"
         justify="center"
         gap="4"
@@ -28,8 +20,8 @@ export function HeroSection() {
       >
         <Heading
           fontSize={{
-            base: "6xl",
-            lg: "8xl",
+            base: '6xl',
+            lg: '8xl',
           }}
           lineHeight="0.9"
           fontWeight="900"
@@ -41,24 +33,24 @@ export function HeroSection() {
         </Heading>
         <Text
           fontSize={{
-            base: "md",
-            md: "xl",
+            base: 'md',
+            md: 'xl',
           }}
           lineHeight="1.8"
           fontWeight="400"
           letterSpacing="-0.01em"
         >
-          Uma análise do <Span color="primary.light">aumento no preço</Span> das
-          memorias RAM entre 2025 e 2026
+          Uma análise do <Span color="primary.light">aumento no preço</Span> das memorias RAM entre
+          2025 e 2026
         </Text>
         <Separator borderColor="primary.light" w="50%" borderWidth="1px" />
       </VStack>
 
       <Flex
-        h={{ base: "100%", lg: "100%" }}
+        h={{ base: '100%', lg: '100%' }}
         w="100%"
         flex="1"
-        position={{ base: "absolute", lg: "relative" }}
+        position={{ base: 'absolute', lg: 'relative' }}
         zIndex={1}
         alignItems="center"
         justifyContent="center"
@@ -96,9 +88,9 @@ export function HeroSection() {
         <Text
           position="absolute"
           bottom="4"
-          right={{ base: "50%", lg: "0" }}
-          transform={{ base: "translateX(50%)", lg: "none" }}
-          fontSize={{ base: "xs", md: "sm" }}
+          right={{ base: '50%', lg: '0' }}
+          transform={{ base: 'translateX(50%)', lg: 'none' }}
+          fontSize={{ base: 'xs', md: 'sm' }}
           zIndex={2}
           letterSpacing="0.08em"
           fontStyle="italic"
@@ -107,5 +99,5 @@ export function HeroSection() {
         </Text>
       </Flex>
     </Flex>
-  );
+  )
 }

@@ -1,16 +1,16 @@
-import { Box } from "@chakra-ui/react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { Box } from '@chakra-ui/react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 
-const MotionBox = motion.create(Box);
+const MotionBox = motion.create(Box)
 
 export function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll()
 
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 120,
     damping: 30,
     mass: 0.2,
-  });
+  })
 
   return (
     <Box
@@ -21,12 +21,12 @@ export function ScrollProgress() {
       w="8px"
       bg="whiteAlpha.100"
       zIndex={9999}
-      mr='16px'
+      mr="16px"
     >
       <MotionBox
         style={{
           scaleY,
-          transformOrigin: "top",
+          transformOrigin: 'top',
         }}
         w="100%"
         h="100%"
@@ -34,5 +34,5 @@ export function ScrollProgress() {
         opacity={0.6}
       />
     </Box>
-  );
+  )
 }

@@ -1,69 +1,52 @@
-import {
-  ResponsiveContainer,
-  AreaChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Area,
-} from "recharts";
-import { MONTHS } from "@/constants";
-import toBrl from "@/utils/toBrl";
-import CustomHover from "./CustomHover";
-import ReferenceLines from "./ReferenceLines";
-import { useMemo } from "react";
-import { useRamHistory } from "@/hooks/useRamHistory";
-import { Box } from "@chakra-ui/react";
-import GrowthIndicatorDesktop from "./GrowthIndicatorDesktop";
-import { isMobile } from "react-device-detect";
+import { ResponsiveContainer, AreaChart, CartesianGrid, XAxis, YAxis, Area } from 'recharts'
+import { MONTHS } from '@/constants'
+import toBrl from '@/utils/toBrl'
+import CustomHover from './CustomHover'
+import ReferenceLines from './ReferenceLines'
+import { useMemo } from 'react'
+import { useRamHistory } from '@/hooks/useRamHistory'
+import { Box } from '@chakra-ui/react'
+import GrowthIndicatorDesktop from './GrowthIndicatorDesktop'
+import { isMobile } from 'react-device-detect'
 
 type Props = {
-  isInView: boolean;
-};
+  isInView: boolean
+}
 
 const Graph = ({ isInView }: Props) => {
-  const useRamHistoryData = useRamHistory();
+  const useRamHistoryData = useRamHistory()
   const data = useMemo(() => {
-    return isInView ? useRamHistoryData.data : useRamHistoryData.emptyData;
-  }, [isInView, useRamHistoryData.data]);
+    return isInView ? useRamHistoryData.data : useRamHistoryData.emptyData
+  }, [isInView, useRamHistoryData.data])
   return (
-    <Box
-      position="relative"
-      w="100%"
-      h={{ base: "100%", lg: "80%" }}
-      zIndex={2}
-    >
+    <Box position="relative" w="100%" h={{ base: '100%', lg: '80%' }} zIndex={2}>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 20, right: 30, left: 10 }}>
-          <CartesianGrid
-            vertical={false}
-            horizontal={true}
-            stroke="#1a1a1a"
-            strokeDasharray="0"
-          />
+          <CartesianGrid vertical={false} horizontal={true} stroke="#1a1a1a" strokeDasharray="0" />
           <XAxis
             dataKey="date"
             interval={0}
             padding={{ left: 30 }}
             tickFormatter={(value, index) => {
-              const current = new Date(value);
+              const current = new Date(value)
 
-              const month = current.getMonth();
-              const year = String(current.getFullYear()).slice(-2);
+              const month = current.getMonth()
+              const year = String(current.getFullYear()).slice(-2)
 
               if (index === 0) {
-                return isMobile ? "" : `${MONTHS[month]}/${year}`;
+                return isMobile ? '' : `${MONTHS[month]}/${year}`
               }
 
-              const previous = new Date(data[index - 1].date);
+              const previous = new Date(data[index - 1].date)
 
               if (
                 previous.getMonth() !== month ||
                 previous.getFullYear() !== current.getFullYear()
               ) {
-                return `${MONTHS[month]}/${year}`;
+                return `${MONTHS[month]}/${year}`
               }
 
-              return "";
+              return ''
             }}
             axisLine={false}
             tickLine={false}
@@ -86,7 +69,7 @@ const Graph = ({ isInView }: Props) => {
             <stop offset="100%" stopColor="#0FA135" stopOpacity={0} />
           </linearGradient>
           <Area
-            key={isInView ? "animated" : "idle"}
+            key={isInView ? 'animated' : 'idle'}
             type="monotone"
             dataKey="avgPrice"
             stroke="#0FA135"
@@ -101,7 +84,7 @@ const Graph = ({ isInView }: Props) => {
       </ResponsiveContainer>
       <GrowthIndicatorDesktop isInView={isInView} />
     </Box>
-  );
-};
+  )
+}
 
-export default Graph;
+export default Graph

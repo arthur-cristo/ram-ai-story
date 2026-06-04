@@ -1,9 +1,9 @@
-import { DATASET_STATS } from "@/constants";
-import { Box, Flex, Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import { DATASET_STATS } from '@/constants'
+import { Box, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react'
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 
-const MotionBox = motion.create(Box);
+const MotionBox = motion.create(Box)
 
 const DatasetSection = () => {
   return (
@@ -12,7 +12,7 @@ const DatasetSection = () => {
         zIndex={1}
         align="center"
         justify="center"
-        gap={{ base: "8", lg: "32" }}
+        gap={{ base: '8', lg: '32' }}
         h="100%"
         w="100%"
         py="16"
@@ -26,15 +26,15 @@ const DatasetSection = () => {
           transition={{
             duration: 5,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
           style={{
-            willChange: "transform",
+            willChange: 'transform',
           }}
         >
           <VStack align="center" gap="0">
             <Heading
-              fontSize={{ base: "12rem", lg: "20rem" }}
+              fontSize={{ base: '12rem', lg: '20rem' }}
               fontWeight="bold"
               letterSpacing="-0.06em"
               lineHeight="1"
@@ -45,8 +45,8 @@ const DatasetSection = () => {
             </Heading>
 
             <Text
-              mt={{ base: "0", lg: "-10" }}
-              fontSize={{ base: "lg", lg: "2rem" }}
+              mt={{ base: '0', lg: '-10' }}
+              fontSize={{ base: 'lg', lg: '2rem' }}
               fontWeight="600"
               color="primary.light"
               letterSpacing="0.12em"
@@ -59,19 +59,19 @@ const DatasetSection = () => {
         <HStack
           w="100%"
           justify="center"
-          gap={{ base: "4", lg: "10" }}
-          px={{ base: "4", lg: "16" }}
+          gap={{ base: '4', lg: '10' }}
+          px={{ base: '4', lg: '16' }}
         >
           {DATASET_STATS.map((item, index) => (
-            <HStack key={item.label} gap={{ base: "4", lg: "10" }}>
+            <HStack key={item.label} gap={{ base: '4', lg: '10' }}>
               <VStack gap="1">
-                <Heading fontSize={{ base: "2xl", lg: "4xl" }} lineHeight="1">
+                <Heading fontSize={{ base: '2xl', lg: '4xl' }} lineHeight="1">
                   {item.value}
                 </Heading>
 
                 <Text
                   opacity={0.7}
-                  fontSize={{ base: "xs", lg: "sm" }}
+                  fontSize={{ base: 'xs', lg: 'sm' }}
                   letterSpacing="0.08em"
                   w="150px"
                   textAlign="center"
@@ -81,11 +81,7 @@ const DatasetSection = () => {
               </VStack>
 
               {index !== DATASET_STATS.length - 1 && (
-                <Box
-                  h={{ base: "40px", lg: "60px" }}
-                  w="1px"
-                  bg="whiteAlpha.300"
-                />
+                <Box h={{ base: '40px', lg: '60px' }} w="1px" bg="whiteAlpha.300" />
               )}
             </HStack>
           ))}
@@ -108,7 +104,7 @@ const DatasetSection = () => {
         zIndex={0}
       />
     </Flex>
-  );
-};
+  )
+}
 
-export default DatasetSection;
+export default DatasetSection

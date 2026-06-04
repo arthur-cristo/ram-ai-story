@@ -1,12 +1,12 @@
-import { Flex, Heading, HStack, Link, Text, VStack } from "@chakra-ui/react";
-import { useRef } from "react";
-import Graph from "./graph";
-import GrowthIndicatorMobile from "./graph/GrowthIndicatorMobile";
-import { useInView } from "framer-motion";
+import { Flex, Heading, HStack, Link, Text, VStack } from '@chakra-ui/react'
+import { useRef } from 'react'
+import Graph from './graph'
+import GrowthIndicatorMobile from './graph/GrowthIndicatorMobile'
+import { useInView } from 'framer-motion'
 
 export function MemoryPriceChart() {
-  const chartRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(chartRef, { once: true, amount: 0.5 });
+  const chartRef = useRef<HTMLDivElement | null>(null)
+  const isInView = useInView(chartRef, { once: true, amount: 0.5 })
 
   return (
     <Flex
@@ -36,7 +36,7 @@ export function MemoryPriceChart() {
         </Text>
 
         <Text color="whiteAlpha.700" fontSize="sm">
-          Fonte:{" "}
+          Fonte:{' '}
           <Link
             color="whiteAlpha.700"
             href="https://meupc.net/build"
@@ -48,5 +48,5 @@ export function MemoryPriceChart() {
         </Text>
       </HStack>
     </Flex>
-  );
+  )
 }
