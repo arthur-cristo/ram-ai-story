@@ -44,6 +44,14 @@ export const EVENTS: Record<
       'Esse comportamento sugere que a oferta de módulos DDR4 continua pressionada. Uma possível explicação é a migração gradual da indústria para a produção de DDR5, reduzindo investimentos e capacidade produtiva dedicados ao DDR4.',
     ],
   },
+
+  '2026-01-07': {
+    title: 'Retorno ao DDR4',
+    description: [
+      'Executivo da AMD confirma retorno de chips Zen 3 antigos em resposta ao aumento nos preços de RAM.',
+      'O motivo para isso, assim como o de muitas outras empresas pensando no retorno de antigos produtos, é oferecer hardware compatível com componentes DDR4, enquanto os preços de memórias não param de subir.',
+    ],
+  },
 }
 
 export const DATASET_STATS = [

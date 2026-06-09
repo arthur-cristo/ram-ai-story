@@ -15,8 +15,9 @@ const CustomHover = () => (
       if (!active || !payload?.length) return null
 
       const { date, avgPrice } = payload[0].payload
-
       const event = EVENTS[date]
+      const [year, month, day] = date.split('-').map(Number)
+      const localDate = new Date(year, month - 1, day)
 
       return (
         <Box
@@ -40,7 +41,7 @@ const CustomHover = () => (
             letterSpacing="0.08em"
             textTransform="uppercase"
           >
-            {new Date(date).toLocaleDateString('pt-BR')}
+            {localDate.toLocaleDateString('pt-BR')}
           </Text>
 
           <Text color="primary.light" fontSize="2xl" fontWeight="800" mb={event ? 1 : 0}>
