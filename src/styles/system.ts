@@ -16,6 +16,14 @@ const config = defineConfig({
           value: '#34D170',
         },
 
+        secondary: {
+          value: '#00B8FF',
+        },
+      
+        'secondary.light': {
+          value: '#66D6FF',
+        },
+
         destructive: {
           value: '#E82C34',
         },

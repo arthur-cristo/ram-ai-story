@@ -109,14 +109,28 @@ export function useRamHistory() {
   const normalizedData = useMemo(() => {
     if (!mergedData.length) return []
 
-    const firstDDR4 = mergedData[0].avgPriceDDR4
-    const firstDDR5 = mergedData[0].avgPriceDDR5
+    const ddr4Values = mergedData.map((d) => d.avgPriceDDR4).filter((v): v is number => v != null)
+
+    const ddr5Values = mergedData.map((d) => d.avgPriceDDR5).filter((v): v is number => v != null)
+
+    const minDDR4 = Math.min(...ddr4Values)
+    const maxDDR4 = Math.max(...ddr4Values)
+
+    const minDDR5 = Math.min(...ddr5Values)
+    const maxDDR5 = Math.max(...ddr5Values)
 
     return mergedData.map((item) => ({
       date: item.date,
-      ddr4Index: item.avgPriceDDR4 != null ? (item.avgPriceDDR4 / (firstDDR4 || 1)) * 100 : null,
 
-      ddr5Index: item.avgPriceDDR5 != null ? (item.avgPriceDDR5 / (firstDDR5 || 1)) * 100 : null,
+      ddr4Normalized:
+        item.avgPriceDDR4 != null
+          ? ((item.avgPriceDDR4 - minDDR4) / (maxDDR4 - minDDR4)) * 100
+          : null,
+
+      ddr5Normalized:
+        item.avgPriceDDR5 != null
+          ? ((item.avgPriceDDR5 - minDDR5) / (maxDDR5 - minDDR5)) * 100
+          : null,
     }))
   }, [mergedData])
 

@@ -9,19 +9,20 @@ import useRamHistory from '@/hooks/useRamHistory'
 
 type Props = {
   isInView: boolean
+  normalize?: boolean
 }
 
-const Graph = ({ isInView }: Props) => {
-  const { mergedData: data, emptyData } = useRamHistory()
+const Graph = ({ isInView, normalize = false }: Props) => {
+  const { normalizedData, mergedData, emptyData } = useRamHistory()
   const chartData = useMemo(() => {
-    return isInView ? data : emptyData
-  }, [isInView, data, emptyData])
+    return isInView ? (normalize ? normalizedData : mergedData) : emptyData
+  }, [isInView, normalize, normalizedData, mergedData, emptyData])
 
   return (
     <Box position="relative" w="100%" h={{ base: '100%', lg: '80%' }} zIndex={2}>
       <ResponsiveContainer width="100%" height="100%">
         {/* @ts-ignore */}
-        <AreaChart data={chartData} margin={{ top: 20, right: 30, left: 10 }}>
+        <AreaChart data={chartData} margin={{ top: 20, right: 30, left: normalize ? -50 : 10 }}>
           <CartesianGrid vertical={false} horizontal={true} stroke="#1a1a1a" strokeDasharray="0" />
           <XAxis
             dataKey="date"
@@ -54,13 +55,13 @@ const Graph = ({ isInView }: Props) => {
           <YAxis
             width={100}
             padding={{ bottom: 20 }}
-            tickFormatter={(value) => `${toBrl(value)}`}
-            domain={[450, 2500]}
+            tickFormatter={(value) => (normalize ? `${value.toFixed(0)}` : `${toBrl(value)}`)}
+            domain={normalize ? ['auto', 'auto'] : [450, 2500]}
             axisLine={false}
             tickLine={false}
           />
 
-          <CustomHover />
+          <CustomHover normalize={normalize} />
 
           <linearGradient id="priceGradientDDR4" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#34D170" stopOpacity={0.35} />
@@ -68,14 +69,27 @@ const Graph = ({ isInView }: Props) => {
             <stop offset="100%" stopColor="#0FA135" stopOpacity={0} />
           </linearGradient>
           <linearGradient id="priceGradientDDR5" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#34D170" stopOpacity={0.35} />
-            <stop offset="40%" stopColor="#34D170" stopOpacity={0.25} />
-            <stop offset="100%" stopColor="#34D170" stopOpacity={0} />
+            <stop offset="0%" stopColor="#66D6FF" stopOpacity={0.35} />
+            <stop offset="40%" stopColor="#00B8FF" stopOpacity={0.25} />
+            <stop offset="100%" stopColor="#00B8FF" stopOpacity={0} />
           </linearGradient>
+          <Area
+            key={isInView ? 'animatedDDR5' : 'idleDDR5'}
+            type="monotone"
+            dataKey={normalize ? 'ddr5Normalized' : 'avgPriceDDR5'}
+            stroke="#00B8FF"
+            fill="url(#priceGradientDDR5)"
+            strokeWidth={3}
+            dot={false}
+            isAnimationActive={isInView}
+            animationDuration={2500}
+            animationEasing="ease-out"
+            zIndex={1}
+          />
           <Area
             key={isInView ? 'animatedDDR4' : 'idleDDR4'}
             type="monotone"
-            dataKey="avgPriceDDR4"
+            dataKey={normalize ? 'ddr4Normalized' : 'avgPriceDDR4'}
             stroke="#0FA135"
             fill="url(#priceGradientDDR4)"
             strokeWidth={3}
@@ -83,18 +97,7 @@ const Graph = ({ isInView }: Props) => {
             isAnimationActive={isInView}
             animationDuration={2500}
             animationEasing="ease-out"
-          />
-          <Area
-            key={isInView ? 'animatedDDR5' : 'idleDDR5'}
-            type="monotone"
-            dataKey="avgPriceDDR5"
-            stroke="#34D170"
-            fill="url(#priceGradientDDR5)"
-            strokeWidth={3}
-            dot={false}
-            isAnimationActive={isInView}
-            animationDuration={2500}
-            animationEasing="ease-out"
+            zIndex={2}
           />
         </AreaChart>
       </ResponsiveContainer>

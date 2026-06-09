@@ -2,7 +2,11 @@ import { Box, Text } from '@chakra-ui/react'
 import { Tooltip } from 'recharts'
 import toBrl from '@/utils/toBrl'
 
-const CustomHover = () => (
+type Props = {
+  normalize?: boolean
+}
+
+const CustomHover = ({ normalize = false }: Props) => (
   <Tooltip
     wrapperStyle={{ zIndex: 9999, pointerEvents: 'none' }}
     cursor={{
@@ -13,9 +17,30 @@ const CustomHover = () => (
     content={({ active, payload }) => {
       if (!active || !payload?.length) return null
 
-      const { date, avgPriceDDR4, avgPriceDDR5 } = payload[0].payload
+      const { date, avgPriceDDR4, avgPriceDDR5, ddr4Normalized, ddr5Normalized } =
+        payload[0].payload
+
       const [year, month, day] = date.split('-').map(Number)
       const localDate = new Date(year, month - 1, day)
+
+      const items = [
+        {
+          label: 'DDR4',
+          color: 'primary.light',
+          value: normalize ? ddr4Normalized : avgPriceDDR4,
+          display: normalize ? `${ddr4Normalized?.toFixed(0) ?? 'N/A'}` : toBrl(avgPriceDDR4),
+        },
+        {
+          label: 'DDR5',
+          color: 'secondary.light',
+          value: normalize ? ddr5Normalized : avgPriceDDR5,
+          display: normalize
+            ? ddr5Normalized != null
+              ? ddr5Normalized.toFixed(0)
+              : 'N/A'
+            : toBrl(avgPriceDDR5),
+        },
+      ].sort((a, b) => (b.value ?? 0) - (a.value ?? 0))
 
       return (
         <Box
@@ -27,11 +52,6 @@ const CustomHover = () => (
           px="5"
           py="4"
           minW="260px"
-          boxShadow="
-            0 0 12px rgba(15,161,53,.12),
-            inset 0 0 12px rgba(15,161,53,.12)
-          "
-          zIndex={999}
         >
           <Text
             fontSize="xs"
@@ -42,16 +62,11 @@ const CustomHover = () => (
             {localDate.toLocaleDateString('pt-BR')}
           </Text>
 
-          {avgPriceDDR4 !== undefined && (
-            <Text color="primary.light" fontSize="xl" fontWeight="800">
-              DDR4: {toBrl(avgPriceDDR4)}
+          {items.map((item) => (
+            <Text key={item.label} color={item.color} fontSize="xl" fontWeight="800">
+              {item.label}: {item.display}
             </Text>
-          )}
-          {avgPriceDDR5 !== undefined && (
-            <Text color="white" fontSize="xl" fontWeight="800" mb={event ? 1 : 0}>
-              DDR5: {toBrl(avgPriceDDR5)}
-            </Text>
-          )}
+          ))}
         </Box>
       )
     }}
