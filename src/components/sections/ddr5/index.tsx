@@ -25,7 +25,9 @@ export default function DDR5() {
           <Heading color="primary.light" fontSize="2xl">
             DDR4 vs DDR5
           </Heading>
-          <Text fontSize="lg">Preço médio ao longo do tempo {normalize ? 'normalizado (0-100)' : 'em R$'}</Text>
+          <Text fontSize="lg">
+            Preço médio ao longo do tempo {normalize ? 'normalizado (0-100)' : 'em R$'}
+          </Text>
         </VStack>
         <Switch.Root checked={normalize} onCheckedChange={(e) => setNormalize(e.checked)} size="lg">
           <Switch.HiddenInput />

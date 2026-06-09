@@ -19,7 +19,7 @@ const config = defineConfig({
         secondary: {
           value: '#00B8FF',
         },
-      
+
         'secondary.light': {
           value: '#66D6FF',
         },
