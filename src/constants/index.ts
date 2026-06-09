@@ -56,20 +56,16 @@ export const EVENTS: Record<
 
 export const DATASET_STATS = [
   {
-    value: '39',
+    value: '58',
     label: 'MODELOS MONITORADOS',
-  },
-  {
-    value: '3',
-    label: 'DATASETS',
   },
   {
     value: 'BR + US',
     label: 'COMPARAÇÃO DE MERCADOS',
   },
   {
-    value: '6',
-    label: 'FONTES DE DADOS',
+    value: '4',
+    label: 'DATASETS',
   },
 ]
 

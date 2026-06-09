@@ -9,7 +9,7 @@ import DDR5 from './components/sections/ddr5'
 
 function App() {
   return (
-    <Flex direction="column" userSelect="none" h="1000dvh" gap="16" overflow="hidden">
+    <Flex direction="column" userSelect="none" gap="16" overflow="hidden">
       <FullScreenButton />
       <Scroll />
       <HeroSection />

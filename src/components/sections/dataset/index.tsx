@@ -41,7 +41,7 @@ const DatasetSection = () => {
               pr="0.06em"
               ml="-0.04em"
             >
-              10.388
+              12.784
             </Heading>
 
             <Text
