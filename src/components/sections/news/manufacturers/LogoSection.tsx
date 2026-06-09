@@ -81,7 +81,7 @@ const LogoSection = ({
         })
 
         return (
-          <VStack key={logo.alt} position="relative" mt="-100px">
+          <VStack key={logo.alt} position="relative">
             <MotionBox style={{ y, willChange: 'transform' }}>
               <MotionImage
                 src={logo.src}

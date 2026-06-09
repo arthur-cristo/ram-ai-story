@@ -15,8 +15,9 @@ const Manufacturers = () => {
       align="center"
       justify="center"
       overflow="hidden"
+      py={8}
     >
-      <VStack h="100%" w="fit-content" justify="center" alignItems="center">
+      <VStack h="100%" w="fit-content" justify="center" alignItems="center" mt={{base: 0, lg: 8}}>
         <HStack h="fit-content" w="100%" justify="space-between" zIndex={1}>
           <VStack gap="0" justifyContent="start" alignItems="start" h="fit-content">
             <Heading
@@ -41,7 +42,7 @@ const Manufacturers = () => {
               DE DRAM ESTÁ NAS MÃOS DE
             </Text>
           </VStack>
-          <VStack w="250px" textAlign="right" align="end">
+          <VStack w="250px" textAlign="right" align="end" justify="end" h='100%'>
             <Text
               fontSize={{ base: 'md', lg: 'xl' }}
               fontWeight="600"
