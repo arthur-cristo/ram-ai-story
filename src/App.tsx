@@ -5,6 +5,7 @@ import Scroll from './components/scroll'
 import { MemoryPriceChart } from './components/sections/memoryPriceChart'
 import FullScreenButton from './components/FullScreenButton'
 import News from './components/sections/news'
+import DDR5 from './components/sections/ddr5'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <HeroSection />
       <DatasetSection />
       <MemoryPriceChart />
+      <DDR5 />
       <News />
     </Flex>
   )

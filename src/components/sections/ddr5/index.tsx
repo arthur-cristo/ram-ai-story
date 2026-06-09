@@ -1,10 +1,9 @@
 import { Flex, Heading, HStack, Link, Text, VStack } from '@chakra-ui/react'
 import { useRef } from 'react'
-import Graph from './graph'
-import GrowthIndicatorMobile from './graph/GrowthIndicatorMobile'
 import { useInView } from 'framer-motion'
+import Graph from './Graph'
 
-export function MemoryPriceChart() {
+export default function DDR5() {
   const chartRef = useRef<HTMLDivElement | null>(null)
   const isInView = useInView(chartRef, { once: true, amount: 0.5 })
 
@@ -23,11 +22,10 @@ export function MemoryPriceChart() {
       <HStack justify="space-between" w="100%">
         <VStack align="start" gap={0} w="100%">
           <Heading color="primary.light" fontSize="2xl">
-            DDR4 16GB 3200MHz - BRASIL
+            DDR4 vs DDR5
           </Heading>
           <Text fontSize="lg">Preço médio ao longo do tempo</Text>
         </VStack>
-        <GrowthIndicatorMobile isInView={isInView} />
       </HStack>
       <Graph isInView={isInView} />
       <HStack justify="space-between" w="100%" zIndex={1}>
