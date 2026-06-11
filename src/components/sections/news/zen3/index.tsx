@@ -128,7 +128,7 @@ const ZEN3 = () => {
           textAlign="end"
         >
           AMD e outras gigantes da tecnologia olham para o passado como alternativa para
-          consumidores domésticos
+          consumidores domésticos.
         </Text>
       </VStack>
     </Flex>

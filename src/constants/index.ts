@@ -56,7 +56,7 @@ export const EVENTS: Record<
 
 export const DATASET_STATS = [
   {
-    value: '58',
+    value: '59',
     label: 'MODELOS MONITORADOS',
   },
   {

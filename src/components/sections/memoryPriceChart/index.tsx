@@ -1,8 +1,9 @@
-import { Flex, Heading, HStack, Link, Text, VStack } from '@chakra-ui/react'
+import { Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react'
 import { useRef } from 'react'
 import Graph from './graph'
 import GrowthIndicatorMobile from './graph/GrowthIndicatorMobile'
 import { useInView } from 'framer-motion'
+import FontLink from '@/components/graphs/FontLink'
 
 export function MemoryPriceChart() {
   const chartRef = useRef<HTMLDivElement | null>(null)
@@ -36,15 +37,7 @@ export function MemoryPriceChart() {
         </Text>
 
         <Text color="whiteAlpha.700" fontSize="sm">
-          Fonte:{' '}
-          <Link
-            color="whiteAlpha.700"
-            href="https://meupc.net/build"
-            target="_blank"
-            textDecoration="underline"
-          >
-            MEUPC.NET
-          </Link>
+          Fonte: <FontLink name="MEUPC.NET" url="https://meupc.net/" />
         </Text>
       </HStack>
     </Flex>

@@ -15,15 +15,16 @@ const Manufacturers = () => {
       align="center"
       justify="center"
       overflow="hidden"
-      py={8}
+      p={8}
+      px={{ base: 0, lg: 16 }}
     >
-      <VStack h="100%" w="fit-content" justify="center" alignItems="center" mt={{base: 0, lg: 8}}>
+      <VStack h="100%" w="fit-content" justify="center" alignItems="center" mt={{ base: 0, lg: 8 }}>
         <HStack h="fit-content" w="100%" justify="space-between" zIndex={1}>
           <VStack gap="0" justifyContent="start" alignItems="start" h="fit-content">
             <Heading
               fontSize={{ base: '7rem', lg: '15rem' }}
               fontWeight={900}
-              color="primary.light"
+              color="primary"
               letterSpacing="-0.06em"
               lineHeight="1"
               pr="0.06em"
@@ -42,7 +43,7 @@ const Manufacturers = () => {
               DE DRAM ESTÁ NAS MÃOS DE
             </Text>
           </VStack>
-          <VStack w="250px" textAlign="right" align="end" justify="end" h='100%'>
+          <VStack w="250px" textAlign="right" align="end" justify="end" h="100%">
             <Text
               fontSize={{ base: 'md', lg: 'xl' }}
               fontWeight="600"
