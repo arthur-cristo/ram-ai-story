@@ -20,6 +20,8 @@ export function useRamHistory() {
   const [ddr5Data, setDdr5Data] = useState<ChartPoint[]>([])
   const [emptyData, setEmptyData] = useState<ChartPoint[]>([])
   const [loading, setLoading] = useState(true)
+  const [ddr4Count, setDdr4Count] = useState(0)
+  const [ddr5Count, setDdr5Count] = useState(0)
 
   useEffect(() => {
     Papa.parse(csvUrl, {
@@ -34,6 +36,8 @@ export function useRamHistory() {
           setLoading(false)
           return
         }
+
+        setDdr4Count(rows.length)
 
         const dateColumns = Object.keys(rows[0]).filter((key) => /^\d{4}-\d{2}-\d{2}$/.test(key))
 
@@ -75,6 +79,8 @@ export function useRamHistory() {
           setDdr5Data([])
           return
         }
+
+        setDdr5Count(rows.length)
 
         const dateColumns = Object.keys(rows[0]).filter((key) => /^\d{4}-\d{2}-\d{2}$/.test(key))
 
@@ -140,6 +146,8 @@ export function useRamHistory() {
     loading,
     mergedData,
     normalizedData,
+    ddr4Count,
+    ddr5Count,
   }
 }
 
