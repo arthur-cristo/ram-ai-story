@@ -182,7 +182,7 @@ export function useRamHistory() {
 
   const brXusaData: BrXUsaPoint[] = useMemo(() => {
     const dates = Array.from(
-      new Set([...usaProductData.map((d) => d.date), ...brProductData.map((d) => d.date)])
+      new Set([...usaProductData.map((d) => d.date), ...brProductData.map((d) => d.date)]),
     ).sort()
 
     const usaMap = new Map(usaProductData.map((d) => [d.date, d.avgPrice]))
@@ -199,7 +199,7 @@ export function useRamHistory() {
     })
 
     const firstValidIndex = combined.findIndex((d) => d.priceUSA !== null && d.priceBR !== null)
-    
+
     const syncedCombined = firstValidIndex !== -1 ? combined.slice(firstValidIndex) : combined
 
     const usaValues = syncedCombined.map((d) => d.priceUSA).filter((v): v is number => v != null)
