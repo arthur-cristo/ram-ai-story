@@ -86,7 +86,7 @@ const LogoSection = ({
               <MotionImage
                 src={logo.src}
                 alt={logo.alt}
-                w={{ base: '200px', lg: '350px', '2xl': '500px' }}
+                w={{ base: '150px', md: '200px', lg: '350px', '2xl': '500px' }}
                 objectFit="contain"
                 zIndex={1}
                 draggable={false}

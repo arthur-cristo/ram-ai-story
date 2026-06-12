@@ -23,17 +23,7 @@ const ReservedCapacityCard = ({ percentage = 40 }: Props) => {
   const text = useTransform(progress, (v) => `${Math.round(v)}%`)
 
   return (
-    <Box
-      w="650px"
-      p={8}
-      borderRadius="32px"
-      bg="rgba(255,255,255,0.05)"
-      border="1px solid rgba(255,255,255,0.12)"
-      backdropFilter="blur(24px)"
-      boxShadow="0 8px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08)"
-      position="relative"
-      overflow="hidden"
-    >
+    <>
       <Box
         position="absolute"
         top="-80px"
@@ -46,14 +36,18 @@ const ReservedCapacityCard = ({ percentage = 40 }: Props) => {
         filter="blur(80px)"
       />
 
-      <Heading size="2xl" mb={5} color="primary.light">
+      <Heading
+        size={{ base: 'md', md: 'lg', lg: '2xl' }}
+        mb={{ base: 1, md: '3', lg: 5 }}
+        color="primary.light"
+      >
         Capacidade Futura Reservada
       </Heading>
 
-      <HStack gap={6}>
+      <HStack gap={{ base: 4, lg: 6 }}>
         <Box
           flex={1}
-          h="42px"
+          h={{ base: '20px', lg: '42px' }}
           bg="whiteAlpha.100"
           borderRadius="xl"
           overflow="hidden"
@@ -81,7 +75,7 @@ const ReservedCapacityCard = ({ percentage = 40 }: Props) => {
           ></MotionBox>
         </Box>
         <MotionHeading
-          size="2xl"
+          size={{ base: 'md', md: 'lg', lg: '2xl' }}
           color="primary.light"
           style={{
             fontVariantNumeric: 'tabular-nums',
@@ -90,7 +84,7 @@ const ReservedCapacityCard = ({ percentage = 40 }: Props) => {
           {text}
         </MotionHeading>
       </HStack>
-    </Box>
+    </>
   )
 }
 

@@ -4,3 +4,12 @@ export type ManufacturersLogos = {
   color: string
   shadowIntensity?: number[]
 }
+
+export type FinancesCard = {
+  title: string
+  subtitle: string
+  description?: string
+  value: string
+  valueSubtitle: string
+  color: string
+}

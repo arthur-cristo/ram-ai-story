@@ -16,7 +16,7 @@ const Manufacturers = () => {
       align="center"
       justify="center"
       overflow="hidden"
-      p={8}
+      p={{ base: 4, lg: 8 }}
       px={{ base: 0, lg: 16 }}
     >
       <VStack h="100%" w="fit-content" justify="center" alignItems="center" mt={{ base: 0, lg: 8 }}>
@@ -64,7 +64,7 @@ const Manufacturers = () => {
         <LogoSection containerRef={containerRef} />
       </VStack>
 
-      <Text color="whiteAlpha.700" fontSize="sm" w="100%" textAlign="right" zIndex={1}>
+      <Text color="whiteAlpha.700" fontSize="sm" w="100%" textAlign="right" zIndex={1} pr={12}>
         Fonte:{' '}
         <FontLink
           name="Yahoo Finance"

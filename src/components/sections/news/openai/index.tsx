@@ -11,16 +11,35 @@ const OpenAI = () => {
       alignItems="center"
       justifyContent="center"
       flexDir="column"
-      py={8}
-      pr={16}
+      py={{ base: 4, lg: 8 }}
+      pr={{ base: 12, lg: 16 }}
       gap={4}
     >
-      <HStack h="100%" overflow="hidden" w="100%" gap={8} justifyContent="center">
-        <VStack gap={8}>
+      <HStack h="100%" w="100%" overflow="hidden" gap={8} justifyContent="center">
+        <VStack gap={8} p={{ base: 4, lg: 8 }}>
           <NewsCard />
-          <ReservedCapacityCard />
+          <Box
+            w="100%"
+            maxW="650px"
+            p={{ base: 6, lg: 8 }}
+            borderRadius="32px"
+            bg="rgba(255,255,255,0.05)"
+            border="1px solid rgba(255,255,255,0.12)"
+            backdropFilter="blur(24px)"
+            boxShadow="0 8px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08)"
+            position="relative"
+            overflow="hidden"
+            display={{ base: 'none', lg: 'block' }}
+          >
+            <ReservedCapacityCard />
+          </Box>
         </VStack>
-        <VStack w="50%" h="100%" alignItems="center" justifyContent="space-between">
+        <VStack
+          w={{ base: '35%', lg: '50%' }}
+          h="100%"
+          alignItems="center"
+          justifyContent="space-between"
+        >
           <Box
             w="100%"
             h="100%"

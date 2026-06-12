@@ -1,4 +1,4 @@
-import type { ManufacturersLogos } from '@/types/constants'
+import type { FinancesCard, ManufacturersLogos } from '@/types/constants'
 
 export const MONTHS = [
   'JAN',
@@ -82,4 +82,30 @@ export const MANUFAFACTURERS_LOGOS: ManufacturersLogos[] = [
     shadowIntensity: [0.4, 0.3, 0.2],
   },
   { src: '/images/logos/micron.png', alt: 'micron', color: '162,0,255' },
+]
+
+export const FINANCES_CARDS: FinancesCard[] = [
+  {
+    title: 'Inflação',
+    subtitle: '(IGP-M)',
+    value: '3,19%',
+    valueSubtitle: 'acumulado',
+    color: '#34D170',
+  },
+  {
+    title: 'Dólar',
+    subtitle: '(USD/BRL)',
+    description: 'R$ 5,39 → R$ 5,00',
+    value: '-7,23%',
+    valueSubtitle: 'VARIAÇÃO',
+    color: '#66D6FF',
+  },
+  {
+    title: 'OURO',
+    subtitle: '(oz)',
+    description: '$ 4.240,61 → $ 4.783,90',
+    value: '12,81%',
+    valueSubtitle: 'VARIAÇÃO',
+    color: '#FFD633',
+  },
 ]
