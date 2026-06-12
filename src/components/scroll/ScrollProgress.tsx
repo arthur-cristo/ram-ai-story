@@ -1,7 +1,8 @@
 import { Box } from '@chakra-ui/react'
-import { motion, useScroll, useSpring } from 'framer-motion'
+import { useScroll, useSpring } from 'framer-motion'
+import MotionBox from '../motion/MotionBox'
 
-const MotionBox = motion.create(Box)
+
 
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll()

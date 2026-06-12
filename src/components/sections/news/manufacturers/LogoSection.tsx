@@ -1,8 +1,9 @@
+import MotionBox from '@/components/motion/MotionBox'
 import { MANUFAFACTURERS_LOGOS } from '@/constants'
-import { Box, HStack, Image, VStack } from '@chakra-ui/react'
+import {  HStack, Image, VStack } from '@chakra-ui/react'
 import { motion, useScroll, useTransform, useTime } from 'framer-motion'
 
-const MotionBox = motion.create(Box)
+
 const MotionImage = motion.create(Image)
 
 const LogoSection = ({

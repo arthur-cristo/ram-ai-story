@@ -1,9 +1,6 @@
+import MotionBox from '@/components/motion/MotionBox'
 import { DATASET_STATS } from '@/constants'
 import { Box, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react'
-
-import { motion } from 'framer-motion'
-
-const MotionBox = motion.create(Box)
 
 const DatasetSection = () => {
   return (

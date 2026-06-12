@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, HStack, Image, Text, VStack } from '@chakra-ui/react'
 import { useRef } from 'react'
 import LogoSection from './LogoSection'
+import FontLink from '@/components/graphs/FontLink'
 
 const Manufacturers = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -62,6 +63,24 @@ const Manufacturers = () => {
         </HStack>
         <LogoSection containerRef={containerRef} />
       </VStack>
+
+      <Text color="whiteAlpha.700" fontSize="sm" w="100%" textAlign="right" zIndex={1}>
+        Fonte:{' '}
+        <FontLink
+          name="Yahoo Finance"
+          url="https://finance.yahoo.com/markets/stocks/articles/dram-etf-holds-73-just-184509547.html"
+        />
+        {' • '}
+        <FontLink
+          name="Micron"
+          url="https://investors.micron.com/news-releases/news-release-details/micron-announces-exit-crucial-consumer-business"
+        />
+        {' • '}
+        <FontLink
+          name="Tom's Hardware"
+          url="https://www.tomshardware.com/tech-industry/artificial-intelligence/samsung-and-sk-hynix-warn-ai-driven-memory-shortages-could-last-until-2027-and-beyond-as-hbm-demand-explodes-customers-already-reserving-supply-years-ahead-while-the-wider-dram-market-begins-to-tighten"
+        />
+      </Text>
       <Box position="absolute" bottom="0" right="0" overflow="hidden" opacity={0.3}>
         <Image src="/images/particles/3.png" />
       </Box>
