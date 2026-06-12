@@ -3,8 +3,13 @@ import { Box, Flex, HStack, Image, Text, VStack } from '@chakra-ui/react'
 import ReservedCapacityCard from './ReservedCapacityCard'
 import NewsCard from './NewsCard'
 import datacenterImage from '@/assets/images/datacenter.jpg'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 const OpenAI = () => {
+  const barRef = useRef(null)
+  const isInView = useInView(barRef, { once: true, amount: 0.5 })
+  const barDep = { barRef, isInView }
   return (
     <Flex
       h="100dvh"
@@ -18,7 +23,7 @@ const OpenAI = () => {
     >
       <HStack h="100%" w="100%" overflow="hidden" gap={8} justifyContent="center">
         <VStack gap={8} p={{ base: 4, lg: 8 }}>
-          <NewsCard />
+          <NewsCard barDep={barDep} />
           <Box
             w="100%"
             maxW="650px"
@@ -32,7 +37,7 @@ const OpenAI = () => {
             overflow="hidden"
             display={{ base: 'none', lg: 'block' }}
           >
-            <ReservedCapacityCard />
+            <ReservedCapacityCard barDep={barDep} />
           </Box>
         </VStack>
         <VStack

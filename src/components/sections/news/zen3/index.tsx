@@ -1,12 +1,14 @@
 import { Box, Flex, Heading, Text, VStack } from '@chakra-ui/react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
 import useRamHistory from '@/hooks/useRamHistory'
-import { useMemo } from 'react'
+import { useMemo, useRef } from 'react'
 import FontLink from '@/components/graphs/FontLink'
+import { useInView } from 'framer-motion'
 
 const ZEN3 = () => {
   const { ddr4Count, ddr5Count } = useRamHistory()
-
+  const chartRef = useRef(null)
+  const isInView = useInView(chartRef, { once: true, amount: 0.5 })
   const pieData = useMemo(
     () => [
       { name: 'DDR4', value: ddr4Count, color: '#0FA135' },
@@ -14,6 +16,16 @@ const ZEN3 = () => {
     ],
     [ddr4Count, ddr5Count],
   )
+  const animatedPieData = useMemo(() => {
+    if (!isInView) {
+      return pieData.map((item) => ({
+        ...item,
+        value: 0,
+      }))
+    }
+
+    return pieData
+  }, [isInView, pieData])
 
   return (
     <Flex
@@ -36,11 +48,11 @@ const ZEN3 = () => {
         overflow="hidden"
         transform={{ base: 'scale(1)', xl: 'scale(1.5)' }}
       >
-        <Box w="350px" h="400px" position="relative">
+        <Box w="350px" h="400px" position="relative" ref={chartRef}>
           <ResponsiveContainer height="100%">
             <PieChart>
               <Pie
-                data={pieData}
+                data={animatedPieData}
                 cx="50%"
                 cy="50%"
                 innerRadius={100}
@@ -48,6 +60,8 @@ const ZEN3 = () => {
                 paddingAngle={10}
                 dataKey="value"
                 stroke="none"
+                isAnimationActive={isInView}
+                animationDuration={1500}
               >
                 {pieData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />

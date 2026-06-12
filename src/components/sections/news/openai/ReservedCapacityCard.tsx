@@ -7,17 +7,25 @@ const MotionHeading = motion.create(Heading)
 
 type Props = {
   percentage?: number
+  barDep: {
+    barRef: React.RefObject<HTMLDivElement | null>
+    isInView: boolean
+  }
 }
 
-const ReservedCapacityCard = ({ percentage = 40 }: Props) => {
+const ReservedCapacityCard = ({ percentage = 40, barDep }: Props) => {
   const progress = useMotionValue(0)
 
   useEffect(() => {
-    animate(progress, percentage, {
+    if (!barDep.isInView) return
+
+    const controls = animate(progress, percentage, {
       duration: 1.8,
       ease: 'easeOut',
     })
-  }, [percentage, progress])
+
+    return () => controls.stop()
+  }, [barDep.isInView, percentage, progress])
 
   const width = useTransform(progress, (v) => `${v}%`)
   const text = useTransform(progress, (v) => `${Math.round(v)}%`)
@@ -44,7 +52,7 @@ const ReservedCapacityCard = ({ percentage = 40 }: Props) => {
         Capacidade Futura Reservada
       </Heading>
 
-      <HStack gap={{ base: 4, lg: 6 }}>
+      <HStack gap={{ base: 4, lg: 6 }} ref={barDep.barRef}>
         <Box
           flex={1}
           h={{ base: '20px', lg: '42px' }}
@@ -61,13 +69,17 @@ const ReservedCapacityCard = ({ percentage = 40 }: Props) => {
             bg="primary.light"
             style={{ width }}
             position="relative"
-            animate={{
-              boxShadow: [
-                '0 0 12px rgba(52,209,112,.3)',
-                '0 0 24px rgba(52,209,112,.9)',
-                '0 0 12px rgba(52,209,112,.3)',
-              ],
-            }}
+            animate={
+              barDep.isInView
+                ? {
+                    boxShadow: [
+                      '0 0 12px rgba(52,209,112,.3)',
+                      '0 0 24px rgba(52,209,112,.9)',
+                      '0 0 12px rgba(52,209,112,.3)',
+                    ],
+                  }
+                : {}
+            }
             transition={{
               duration: 2,
               repeat: Infinity,

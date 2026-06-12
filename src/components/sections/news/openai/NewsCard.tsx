@@ -2,7 +2,14 @@ import TiltCard from '@/components/motion/TiltCard'
 import { Box, Separator, Heading, Text } from '@chakra-ui/react'
 import ReservedCapacityCard from './ReservedCapacityCard'
 
-const NewsCard = () => (
+type Props = {
+  barDep: {
+    barRef: React.RefObject<HTMLDivElement | null>
+    isInView: boolean
+  }
+}
+
+const NewsCard = ({ barDep }: Props) => (
   <TiltCard>
     <Box
       maxW="650px"
@@ -55,7 +62,7 @@ inset 0 1px 0 rgba(255,255,255,.08)
       </Text>
 
       <Box mt={4} display={{ base: 'block', lg: 'none' }}>
-        <ReservedCapacityCard />
+        <ReservedCapacityCard barDep={barDep} />
       </Box>
     </Box>
   </TiltCard>
