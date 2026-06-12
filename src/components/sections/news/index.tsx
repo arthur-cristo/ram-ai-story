@@ -4,7 +4,7 @@ import OpenAI from './openai'
 
 const News = () => {
   return (
-    <VStack h='100%'>
+    <VStack h="100%">
       <Manufacturers />
       <OpenAI />
     </VStack>

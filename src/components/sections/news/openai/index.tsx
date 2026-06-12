@@ -42,7 +42,7 @@ const OpenAI = () => {
             <Box
               position="absolute"
               inset={0}
-              bg='radial-gradient(circle,rgba(255, 255, 255, 0) 0%, rgba(1, 1, 2, 1) 95%);'
+              bg="radial-gradient(circle,rgba(255, 255, 255, 0) 0%, rgba(1, 1, 2, 1) 95%);"
             />
           </Box>
         </VStack>
