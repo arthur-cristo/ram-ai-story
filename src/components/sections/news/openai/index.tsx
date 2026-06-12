@@ -2,6 +2,7 @@ import FontLink from '@/components/graphs/FontLink'
 import { Box, Flex, HStack, Image, Text, VStack } from '@chakra-ui/react'
 import ReservedCapacityCard from './ReservedCapacityCard'
 import NewsCard from './NewsCard'
+import datacenterImage from '@/assets/images/datacenter.jpg'
 
 const OpenAI = () => {
   return (
@@ -49,7 +50,7 @@ const OpenAI = () => {
             overflow="hidden"
           >
             <Image
-              src="/images/datacenter.jpg"
+              src={datacenterImage}
               alt="OpenAI"
               w="100%"
               h="100%"

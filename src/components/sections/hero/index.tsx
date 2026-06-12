@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Separator, Span, Text, VStack } from '@chakra-ui/react'
 import { HeroScene } from './three/HeroScene'
+import particle1 from '@/assets/images/particles/1.png'
 
 export function HeroSection() {
   return (
@@ -65,7 +66,7 @@ export function HeroSection() {
           h="100%"
           opacity={0.5}
           bgImage={`
-            url('/images/particles/1.png')
+            url(${particle1})
           `}
           bgBlendMode="multiply"
           bgSize="contain"

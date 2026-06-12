@@ -2,6 +2,7 @@ import { Box, Flex, Heading, HStack, Image, Text, VStack } from '@chakra-ui/reac
 import { useRef } from 'react'
 import LogoSection from './LogoSection'
 import FontLink from '@/components/graphs/FontLink'
+import particle3 from '@/assets/images/particles/3.png'
 
 const Manufacturers = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -82,7 +83,7 @@ const Manufacturers = () => {
         />
       </Text>
       <Box position="absolute" bottom="0" right="0" overflow="hidden" opacity={0.3}>
-        <Image src="/images/particles/3.png" />
+        <Image src={particle3} />
       </Box>
     </Flex>
   )

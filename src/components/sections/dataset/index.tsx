@@ -1,6 +1,7 @@
 import MotionBox from '@/components/motion/MotionBox'
 import { DATASET_STATS } from '@/constants'
 import { Box, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react'
+import particle2 from '@/assets/images/particles/2.png'
 
 const DatasetSection = () => {
   return (
@@ -94,7 +95,7 @@ const DatasetSection = () => {
         h="100%"
         w="100%"
         opacity={0.3}
-        bgImage={`url('/images/particles/2.png')`}
+        bgImage={`url('${particle2}')`}
         bgSize="cover"
         backgroundRepeat="no-repeat"
         backgroundPosition="center"

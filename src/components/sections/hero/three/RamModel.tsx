@@ -1,4 +1,5 @@
 import { Float, useGLTF } from '@react-three/drei'
+import model from '@/assets/models/random_access_memory_ram_ddr3_black_2.glb'
 
 type Props = {
   scale: number
@@ -7,7 +8,7 @@ type Props = {
 }
 
 export function RamModel({ scale, position, rotation }: Props) {
-  const gltf = useGLTF('/models/random_access_memory_ram_ddr3_black_2.glb')
+  const gltf = useGLTF(model)
 
   return (
     <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
@@ -16,4 +17,4 @@ export function RamModel({ scale, position, rotation }: Props) {
   )
 }
 
-useGLTF.preload('/models/random_access_memory_ram_ddr3_black_2.glb')
+useGLTF.preload(model)

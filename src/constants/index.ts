@@ -1,4 +1,7 @@
 import type { FinancesCard, ManufacturersLogos } from '@/types/constants'
+import samsungLogo from '@/assets/images/logos/samsung.png'
+import skHynixLogo from '@/assets/images/logos/sk_hynix.png'
+import micronLogo from '@/assets/images/logos/micron.png'
 
 export const MONTHS = [
   'JAN',
@@ -71,17 +74,17 @@ export const DATASET_STATS = [
 
 export const MANUFAFACTURERS_LOGOS: ManufacturersLogos[] = [
   {
-    src: '/images/logos/samsung.png',
+    src: samsungLogo,
     alt: 'samsung',
     color: '0,162,255',
   },
   {
-    src: '/images/logos/sk_hynix.png',
+    src: skHynixLogo,
     alt: 'sk-hynix',
     color: '255,162,0',
     shadowIntensity: [0.4, 0.3, 0.2],
   },
-  { src: '/images/logos/micron.png', alt: 'micron', color: '162,0,255' },
+  { src: micronLogo, alt: 'micron', color: '162,0,255' },
 ]
 
 export const FINANCES_CARDS: FinancesCard[] = [
