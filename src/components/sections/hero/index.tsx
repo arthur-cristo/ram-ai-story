@@ -1,10 +1,13 @@
 import { Box, Flex, Heading, Separator, Span, Text, VStack } from '@chakra-ui/react'
 import { HeroScene } from './three/HeroScene'
 import particle1 from '@/assets/images/particles/1.png'
+import { useRef } from 'react'
 
 export function HeroSection() {
+  const sectionRef = useRef<HTMLDivElement>(null)
   return (
     <Flex
+      ref={sectionRef}
       h={{ base: '150dvh', lg: '100dvh' }}
       flexDirection={{ base: 'column', lg: 'row' }}
       alignItems="center"
@@ -83,7 +86,7 @@ export function HeroSection() {
           aspectRatio={1}
           h="100%"
         >
-          <HeroScene />
+          <HeroScene sectionRef={sectionRef} />
         </Box>
 
         <Text

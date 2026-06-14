@@ -1,4 +1,4 @@
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
 
 import * as THREE from 'three'
@@ -6,10 +6,15 @@ import * as THREE from 'three'
 import { isMobile } from 'react-device-detect'
 
 import { RamModel } from './RamModel'
+import { MotionValue, useScroll, useTransform } from 'framer-motion'
+
+type HeroSceneProps = {
+  sectionRef: React.RefObject<HTMLElement | null>
+}
 
 const DEVICE = isMobile ? 'mobile' : 'desktop'
 
-function Scene() {
+function Scene({ scrollProgress }: { scrollProgress: MotionValue<number> }) {
   const MODEL_CONFIG = {
     desktop: {
       position: [0, 0, 0],
@@ -26,6 +31,17 @@ function Scene() {
   const modelRef = useRef<THREE.Group>(null)
 
   const model = MODEL_CONFIG[DEVICE]
+
+  const rotationX = useTransform(scrollProgress, [0.5, 0.75, 1], [0, Math.PI / 2, Math.PI])
+
+  useFrame(() => {
+    if (!modelRef.current) return
+    if (DEVICE === 'desktop') {
+      modelRef.current.rotation.x = rotationX.get()
+    } else if (DEVICE === 'mobile') {
+      modelRef.current.rotation.z = rotationX.get()
+    }
+  })
 
   return (
     <>
@@ -56,7 +72,7 @@ function Scene() {
   )
 }
 
-export function HeroScene() {
+export function HeroScene({ sectionRef }: HeroSceneProps) {
   const CAMERA_CONFIG = {
     desktop: {
       position: [-8, 10, 5],
@@ -71,10 +87,14 @@ export function HeroScene() {
     },
   } as const
   const camera = CAMERA_CONFIG[DEVICE]
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
 
   return (
     <Canvas camera={camera}>
-      <Scene />
+      <Scene scrollProgress={scrollYProgress} />
     </Canvas>
   )
 }
