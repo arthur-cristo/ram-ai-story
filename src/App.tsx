@@ -8,6 +8,7 @@ import News from './components/sections/news'
 import DDR5 from './components/sections/ddr5'
 import ZEN3 from './components/sections/news/zen3'
 import BrXUSA from './components/sections/brXusa'
+import Metodology from './components/sections/metodology'
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
       <DatasetSection />
       <MemoryPriceChart />
       <DDR5 />
-
       <ZEN3 />
       <BrXUSA />
       <News />
+      <Metodology />
     </Flex>
   )
 }

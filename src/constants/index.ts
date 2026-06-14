@@ -112,3 +112,33 @@ export const FINANCES_CARDS: FinancesCard[] = [
     color: '#FFD633',
   },
 ]
+
+export const METODOLOGY = [
+  {
+    title: 'Coleta de Dados com  Web Scraping Automatizado',
+    description: [
+      'Scripts em Python desenvolvidos especificamente para o projeto.',
+      'Coleta diária de preços de memórias DDR4 e DDR5 no MeuPC.net.',
+      'Histórico internacional obtido via Amazon Brasil, Amazon EUA e Keepa.',
+      'Mais de 50 modelos monitorados ao longo de 6 meses.',
+    ],
+  },
+  {
+    title: 'Tratamento dos Dados - Limpeza e Padronização',
+    description: [
+      'Conversão de preços para formato numérico.',
+      'Padronização de datas e séries temporais.',
+      'Remoção de valores ausentes e inconsistentes.',
+      'Filtragem de outliers e produtos fora do escopo do estudo.',
+    ],
+  },
+  {
+    title: 'Análise dos Dados - Comparação e Contextualização',
+    description: [
+      'Cálculo de médias e evolução temporal dos preços.',
+      'Comparação entre DDR4, DDR5 e mercados internacionais.',
+      'Correlação com inflação, dólar e notícias do setor.',
+      'Avaliação do impacto da demanda por IA no mercado de memória.',
+    ],
+  },
+]

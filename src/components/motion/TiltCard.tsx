@@ -1,13 +1,19 @@
 import { useMotionValue, useSpring } from 'framer-motion'
 import MotionBox from './MotionBox'
 
+type Props = {
+  children: React.ReactNode
+  color?: string
+  lightHeight?: string
+  lightWidth?: string
+}
+
 export default function TiltCard({
   children,
   color = '#34D170',
-}: {
-  children: React.ReactNode
-  color?: string
-}) {
+  lightHeight = '250px',
+  lightWidth = '250px',
+}: Props) {
   const rotateX = useMotionValue(0)
   const rotateY = useMotionValue(0)
 
@@ -68,8 +74,8 @@ export default function TiltCard({
     >
       <MotionBox
         position="absolute"
-        w="250px"
-        h="250px"
+        w={lightWidth}
+        h={lightHeight}
         borderRadius="full"
         bg={color}
         opacity={0.28}
