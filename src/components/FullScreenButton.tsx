@@ -89,7 +89,7 @@ const FullscreenToggleButton = () => {
       position="fixed"
       bottom="4"
       left="4"
-      zIndex="9999"
+      zIndex="999999"
       w="10"
       h="10"
       aspectRatio={1}

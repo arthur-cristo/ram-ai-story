@@ -10,10 +10,12 @@ import ZEN3 from './components/sections/news/zen3'
 import BrXUSA from './components/sections/brXusa'
 import Metodology from './components/sections/metodology'
 import EndSection from './components/sections/end'
+import MobileFullscreenOverlay from './components/MobileFullscreenOverlay'
 
 function App() {
   return (
     <Flex direction="column" userSelect="none" gap="16" overflow="hidden">
+      <MobileFullscreenOverlay />
       <FullScreenButton />
       <Scroll />
       <HeroSection />

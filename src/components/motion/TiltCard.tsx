@@ -19,6 +19,7 @@ type Props = {
   lightHeight?: string
   lightWidth?: string
   glowPosition?: GlowPosition
+  borderRadius?: string
 }
 
 export default function TiltCard({
@@ -27,6 +28,7 @@ export default function TiltCard({
   lightHeight = '250px',
   lightWidth = '250px',
   glowPosition = 'center',
+  borderRadius = '32px',
 }: Props) {
   const rotateX = useMotionValue(0)
   const rotateY = useMotionValue(0)
@@ -158,6 +160,7 @@ export default function TiltCard({
       }
       transformStyle="preserve-3d"
       overflow="hidden"
+      borderRadius={borderRadius}
     >
       <MotionBox
         position="absolute"

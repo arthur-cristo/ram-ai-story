@@ -45,7 +45,6 @@ const ZEN3 = () => {
         position="relative"
         align="center"
         justify="center"
-        overflow="hidden"
         transform={{ base: 'scale(1)', xl: 'scale(1.5)' }}
       >
         <Box w="350px" h="400px" position="relative" ref={chartRef}>
@@ -121,9 +120,9 @@ const ZEN3 = () => {
         <VStack w={{ base: '30%', '2xl': '20%' }} align="start" position="relative" gap={4}>
           <Text
             position="absolute"
-            top={{ base: '-3rem', md: '-5rem', lg: '-7rem' }}
+            top={{ base: '-3rem', md: '-3rem', lg: '-7rem' }}
             left="-2rem"
-            fontSize="20rem"
+            fontSize={{ base: '10rem', md: '15rem', lg: '20rem' }}
             lineHeight="1"
             fontWeight="900"
             color="primary"
