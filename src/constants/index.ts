@@ -117,10 +117,9 @@ export const METODOLOGY = [
   {
     title: 'Coleta de Dados com  Web Scraping Automatizado',
     description: [
-      'Scripts em Python desenvolvidos especificamente para o projeto.',
-      'Coleta diária de preços de memórias DDR4 e DDR5 no MeuPC.net.',
-      'Histórico internacional obtido via Amazon Brasil, Amazon EUA e Keepa.',
-      'Mais de 50 modelos monitorados ao longo de 6 meses.',
+      'Scripts em Python desenvolvidos para o projeto.',
+      'Coleta do histórico de preços de memórias DDR4 e DDR5 no MeuPC.net.',
+      'Longo Histórico nacional e internacional obtido via Amazon Brasil, Amazon EUA e Keepa.',
     ],
   },
   {
@@ -136,9 +135,8 @@ export const METODOLOGY = [
     title: 'Análise dos Dados - Comparação e Contextualização',
     description: [
       'Cálculo de médias e evolução temporal dos preços.',
-      'Comparação entre DDR4, DDR5 e mercados internacionais.',
-      'Correlação com inflação, dólar e notícias do setor.',
-      'Avaliação do impacto da demanda por IA no mercado de memória.',
+      'Comparação entre DDR4, DDR5 e mercado internacionall.',
+      'Correlação com inflação, dólar, ouro e notícias do setor.',
     ],
   },
 ]

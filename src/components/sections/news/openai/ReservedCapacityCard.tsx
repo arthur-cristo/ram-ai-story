@@ -12,7 +12,7 @@ type Props = {
 
 const ReservedCapacityCard = ({ percentage = 40, isInView }: Props) => {
   const progress = useMotionValue(0)
-  console.log(isInView)
+
   useEffect(() => {
     if (!isInView) return
 

@@ -121,7 +121,7 @@ const ZEN3 = () => {
         <VStack w={{ base: '30%', '2xl': '20%' }} align="start" position="relative" gap={4}>
           <Text
             position="absolute"
-            top="-7rem"
+            top={{ base: '-3rem', md: '-5rem', lg: '-7rem' }}
             left="-2rem"
             fontSize="20rem"
             lineHeight="1"
@@ -137,7 +137,7 @@ const ZEN3 = () => {
           <Heading
             position="relative"
             zIndex={1}
-            fontSize={{ base: '2xl', lg: '4xl' }}
+            fontSize={{ base: 'lg', md: 'xl', lg: '4xl' }}
             textAlign="end"
           >
             Executivo da AMD confirma retorno de chips Zen 3 antigos em resposta ao aumento nos
@@ -148,7 +148,7 @@ const ZEN3 = () => {
             position="relative"
             zIndex={1}
             color="whiteAlpha.800"
-            fontSize={{ base: 'md', lg: 'xl' }}
+            fontSize={{ base: 'xs', md: 'sm', lg: 'xl' }}
             textAlign="end"
           >
             AMD e outras gigantes da tecnologia olham para o passado como alternativa para

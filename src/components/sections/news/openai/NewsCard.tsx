@@ -7,7 +7,7 @@ type Props = {
 }
 
 const NewsCard = ({ isInView }: Props) => (
-  <TiltCard>
+  <TiltCard glowPosition="top-right">
     <Box
       maxW="650px"
       w="100%"

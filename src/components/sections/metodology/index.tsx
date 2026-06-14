@@ -26,7 +26,7 @@ const Metodology = () => {
           Metodologia
         </Heading>
         {METODOLOGY.map((item, index) => (
-          <TiltCard key={index} lightHeight="150px" lightWidth="200px">
+          <TiltCard key={index} lightHeight="150px" lightWidth="200px" glowPosition="center-left">
             <Flex
               flexDir="column"
               gap={0}
