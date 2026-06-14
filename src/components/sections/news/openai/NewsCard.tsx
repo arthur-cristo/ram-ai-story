@@ -3,13 +3,10 @@ import { Box, Separator, Heading, Text } from '@chakra-ui/react'
 import ReservedCapacityCard from './ReservedCapacityCard'
 
 type Props = {
-  barDep: {
-    barRef: React.RefObject<HTMLDivElement | null>
-    isInView: boolean
-  }
+  isInView: boolean
 }
 
-const NewsCard = ({ barDep }: Props) => (
+const NewsCard = ({ isInView }: Props) => (
   <TiltCard>
     <Box
       maxW="650px"
@@ -62,7 +59,7 @@ inset 0 1px 0 rgba(255,255,255,.08)
       </Text>
 
       <Box mt={4} display={{ base: 'block', lg: 'none' }}>
-        <ReservedCapacityCard barDep={barDep} />
+        <ReservedCapacityCard isInView={isInView} />
       </Box>
     </Box>
   </TiltCard>

@@ -9,7 +9,7 @@ import { useRef } from 'react'
 const OpenAI = () => {
   const barRef = useRef(null)
   const isInView = useInView(barRef, { once: true, amount: 0.5 })
-  const barDep = { barRef, isInView }
+
   return (
     <Flex
       h="100dvh"
@@ -21,9 +21,9 @@ const OpenAI = () => {
       pr={{ base: 12, lg: 16 }}
       gap={4}
     >
-      <HStack h="100%" w="100%" overflow="hidden" gap={8} justifyContent="center">
+      <HStack h="100%" w="100%" overflow="hidden" gap={8} justifyContent="center" ref={barRef}>
         <VStack gap={8} p={{ base: 4, lg: 8 }}>
-          <NewsCard barDep={barDep} />
+          <NewsCard isInView={isInView} />
           <Box
             w="100%"
             maxW="650px"
@@ -37,7 +37,7 @@ const OpenAI = () => {
             overflow="hidden"
             display={{ base: 'none', lg: 'block' }}
           >
-            <ReservedCapacityCard barDep={barDep} />
+            <ReservedCapacityCard isInView={isInView} />
           </Box>
         </VStack>
         <VStack
