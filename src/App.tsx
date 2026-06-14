@@ -9,6 +9,7 @@ import DDR5 from './components/sections/ddr5'
 import ZEN3 from './components/sections/news/zen3'
 import BrXUSA from './components/sections/brXusa'
 import Metodology from './components/sections/metodology'
+import EndSection from './components/sections/end'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <BrXUSA />
       <News />
       <Metodology />
+      <EndSection />
     </Flex>
   )
 }
