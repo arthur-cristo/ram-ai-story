@@ -1,12 +1,12 @@
 import { Box, Flex, Heading, Text, VStack } from '@chakra-ui/react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
-import useRamHistory from '@/hooks/useRamHistory'
+import { useRamHistoryContext } from '@/contexts/RamHistoryContext'
 import { useMemo, useRef } from 'react'
 import FontLink from '@/components/graphs/FontLink'
 import { useInView } from 'framer-motion'
 
 const ZEN3 = () => {
-  const { ddr4Count, ddr5Count } = useRamHistory()
+  const { ddr4Count, ddr5Count } = useRamHistoryContext()
   const chartRef = useRef(null)
   const isInView = useInView(chartRef, { once: true, amount: 0.5 })
   const pieData = useMemo(

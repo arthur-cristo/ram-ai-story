@@ -4,17 +4,17 @@ import toBrl from '@/utils/toBrl'
 import CustomHover from './CustomHover'
 import ReferenceLines from './ReferenceLines'
 import { useMemo } from 'react'
-import { useRamHistory } from '@/hooks/useRamHistory'
 import { Box } from '@chakra-ui/react'
 import GrowthIndicatorDesktop from './GrowthIndicatorDesktop'
 import { isMobile } from 'react-device-detect'
+import { useRamHistoryContext } from '@/contexts/RamHistoryContext'
 
 type Props = {
   isInView: boolean
 }
 
 const Graph = ({ isInView }: Props) => {
-  const useRamHistoryData = useRamHistory()
+  const useRamHistoryData = useRamHistoryContext()
   const data = useMemo(() => {
     return isInView ? useRamHistoryData.data : useRamHistoryData.emptyData
   }, [isInView, useRamHistoryData.data])

@@ -29,7 +29,7 @@ export function ScrollProgress() {
         }}
         w="100%"
         h="100%"
-        bg="primary"
+        bg="linear-gradient(180deg, #0fa135 0%, #34d170 100%)"
         opacity={0.6}
       />
     </Box>

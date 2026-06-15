@@ -5,7 +5,7 @@ import CustomHover from './CustomHover'
 import { useMemo } from 'react'
 import { Box } from '@chakra-ui/react'
 import { isMobile } from 'react-device-detect'
-import useRamHistory from '@/hooks/useRamHistory'
+import { useRamHistoryContext } from '@/contexts/RamHistoryContext'
 
 type Props = {
   isInView: boolean
@@ -13,7 +13,7 @@ type Props = {
 }
 
 const Graph = ({ isInView, normalize = false }: Props) => {
-  const { normalizedData, mergedData, emptyData } = useRamHistory()
+  const { normalizedData, mergedData, emptyData } = useRamHistoryContext()
   const chartData = useMemo(() => {
     return isInView ? (normalize ? normalizedData : mergedData) : emptyData
   }, [isInView, normalize, normalizedData, mergedData, emptyData])
