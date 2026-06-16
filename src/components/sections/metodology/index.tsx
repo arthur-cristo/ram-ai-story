@@ -5,8 +5,21 @@ import TiltCard from '@/components/motion/TiltCard'
 
 const Metodology = () => {
   return (
-    <Flex h="100%" p={8} pr={16} justify={{ base: "center", '2xl': "space-between" }} gap={8} align="center" overflow="hidden">
-      <Flex w={{ base: "100%", "2xl": "fit-content" }} flexDir="column" gap={{ base: 4, '2xl': 8 }} px={4}>
+    <Flex
+      h="100%"
+      p={8}
+      pr={16}
+      justify={{ base: 'center', '2xl': 'space-between' }}
+      gap={8}
+      align="center"
+      overflow="hidden"
+    >
+      <Flex
+        w={{ base: '100%', '2xl': 'fit-content' }}
+        flexDir="column"
+        gap={{ base: 4, '2xl': 8 }}
+        px={4}
+      >
         <Heading
           fontSize={{ base: '3rem', md: '4rem', lg: '4rem' }}
           textAlign={{ base: 'center', '2xl': 'left' }}
