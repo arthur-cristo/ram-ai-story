@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 import Systems from './components/Systems'
-import Sections from './components/Sections'
+import Sections from './components/sections'
 
 function App() {
   return (
